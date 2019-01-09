@@ -19,9 +19,7 @@
    Class myclass = objc_allocateClassPair(self.class, newNem.UTF8String, 0);
     // 注册类
     objc_registerClassPair(myclass);
-    
-    
-    
+        
 //    2.重写子类set方法 -- 所谓的重写就是给子类添加f这个方法 setName,因为子类没有父类的setName方法！！！
     /* class ：给那个类添加方法
      *sel:方法编号
@@ -30,10 +28,8 @@
      */
     class_addMethod(myclass, @selector(setName:), (IMP)setName, "v@:@");
     
-    
 //    3.修改isa指针
     object_setClass(self, myclass);
-    
     
 //    4.将观察保存到当前对象
     objc_setAssociatedObject(self, @"observer", observer, OBJC_ASSOCIATION_ASSIGN);
